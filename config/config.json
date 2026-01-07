@@ -1,0 +1,14 @@
+{
+    "application": "Data Cleaner Professional",
+    "version": 1.1,
+    "cleaner": {
+        "drop_na": true,
+        "drop_duplicates": true,
+        "data_type_correction": {
+            "Order ID": "int",
+            "Price Each": "float"
+        },
+        "columns_to_remove": ["Purchase Address"]
+    }
+}
+ 
