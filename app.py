@@ -1,21 +1,16 @@
-import logging
 from src.datacleaner import DataCleaner
  
 def main():
-    # 1. تحديد المسارات (Paths)
-    config_file = "./config/config.json"
-    input_data = "./data/input/my_data.csv"
-    output_data = "./data/output/cleaned_data.csv"
+    konfig_p = "./config/config.json"
+    eingabe_p = "./data/input/my_data.csv"
+    ausgabe_p = "./data/output/bereinigte_daten.csv"
  
-    # 2. إنشاء كائن المنظف
-    cleaner = DataCleaner(config_file)
- 
-    # 3. تشغيل العمليات
-    cleaner.load_data(input_data)
-    cleaner.clean()
-    cleaner.save_data(output_data)
- 
-    print("--- Prozess erfolgreich beendet ---")
+    cleaner = DataCleaner(konfig_p)
+    
+    if cleaner.lade_daten(eingabe_p):
+        cleaner.bereinigen()
+        cleaner.daten_speichern(ausgabe_p)
+        print("--- Prozess erfolgreich abgeschlossen ---")
  
 if __name__ == "__main__":
     main()
